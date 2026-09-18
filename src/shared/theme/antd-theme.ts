@@ -5,24 +5,29 @@ const fontFamily =
 
 const sharedToken = {
   fontFamily,
-  borderRadius: 2,
-  borderRadiusLG: 4,
-  borderRadiusSM: 2,
-  controlHeight: 30,
+  fontSize: 15,
+  borderRadius: 8,
+  borderRadiusLG: 12,
+  borderRadiusSM: 6,
+  controlHeight: 40,
+  controlHeightLG: 48,
+  controlHeightSM: 32,
   wireframe: false,
 } satisfies ThemeConfig["token"];
 
 const sharedComponents = {
-  Table: { cellPaddingBlock: 8, headerSplitColor: "transparent" },
-  Card: { paddingLG: 16 },
-  Form: { itemMarginBottom: 16 },
-  Layout: { headerHeight: 48 },
+  Button: { fontWeight: 600, primaryShadow: "none", borderRadiusLG: 10 },
+  Input: { paddingInline: 14 },
+  Table: { cellPaddingBlock: 12, headerSplitColor: "transparent" },
+  Card: { paddingLG: 24 },
+  Form: { itemMarginBottom: 20, verticalLabelPadding: "0 0 6px" },
+  Layout: { headerHeight: 56 },
 } satisfies ThemeConfig["components"];
 
 export const lightTheme: ThemeConfig = {
   token: {
     ...sharedToken,
-    colorPrimary: "#2A2F36",
+    colorPrimary: "#18181B",
     colorInfo: "#5B7A8C",
     colorSuccess: "#5B7A8C",
     colorWarning: "#C77800",
@@ -30,7 +35,7 @@ export const lightTheme: ThemeConfig = {
     colorTextBase: "#14171A",
     colorBgBase: "#FFFFFF",
     colorBgLayout: "#FBFBFA",
-    colorBorder: "#E3E3E0",
+    colorBorder: "#D4D4D8",
     colorBorderSecondary: "#ECECE9",
   },
   components: {

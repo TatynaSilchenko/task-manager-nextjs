@@ -10,8 +10,6 @@ type AntdProviderProps = {
   children: ReactNode;
 };
 
-// App рендерит обёртку с классом css-var-*: antd объявляет CSS-переменные темы
-// на этом классе, и без обёртки var(--ant-*) недоступны в наших CSS Modules.
 export function AntdProvider({ children }: AntdProviderProps) {
   return (
     <ConfigProvider locale={ruRU} theme={lightTheme}>
