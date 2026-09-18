@@ -27,3 +27,11 @@ export function apiValidationError(error: z.ZodError) {
     z.flattenError(error).fieldErrors,
   );
 }
+
+export function apiUnauthorized() {
+  return apiError("Нужно войти в систему", 401);
+}
+
+export function apiNotFound(error: string) {
+  return apiError(error, 404);
+}

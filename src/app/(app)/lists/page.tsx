@@ -2,6 +2,8 @@ import { Empty } from "antd";
 import type { Metadata } from "next";
 
 import { getListStats } from "@/domain/list/stats";
+import { CreateListContainer } from "@/features/lists/create-list/CreateListContainer";
+import { ListActionsContainer } from "@/features/lists/list-actions/ListActionsContainer";
 import { ListCard } from "@/features/lists/list-card/ListCard";
 import { ListSearch } from "@/features/lists/list-search/ListSearch";
 import { listRepository } from "@/server/repositories/list.repository";
@@ -27,8 +29,11 @@ export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
     <main className={styles.page}>
       <header className={styles.header}>
         <h1 className={styles.title}>Списки задач</h1>
-        <div className={styles.search}>
-          <ListSearch defaultValue={query} />
+        <div className={styles.toolbar}>
+          <div className={styles.search}>
+            <ListSearch defaultValue={query} />
+          </div>
+          <CreateListContainer />
         </div>
       </header>
 
@@ -40,11 +45,12 @@ export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
               id={list.id}
               title={list.title}
               stats={stats}
+              actions={<ListActionsContainer id={list.id} title={list.title} />}
             />
           ))}
         </div>
       ) : (
-        <Empty description="Ничего не найдено" />
+        <Empty description={query ? "Ничего не найдено" : "Списков пока нет"} />
       )}
     </main>
   );

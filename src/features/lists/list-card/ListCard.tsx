@@ -1,5 +1,6 @@
 import { Progress } from "antd";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import type { ListIndicator, ListStats } from "@/domain/list/stats";
 
@@ -15,19 +16,20 @@ type ListCardProps = {
   id: string;
   title: string;
   stats: ListStats;
+  actions?: ReactNode;
 };
 
-export function ListCard({ id, title, stats }: ListCardProps) {
+export function ListCard({ id, title, stats, actions }: ListCardProps) {
   const indicatorLabel = INDICATOR_LABEL[stats.indicator];
 
   return (
-    <Link
-      href={`/lists/${id}`}
-      className={styles.card}
-      data-indicator={stats.indicator}
-    >
+    <article className={styles.card} data-indicator={stats.indicator}>
       <div className={styles.heading}>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title}>
+          <Link href={`/lists/${id}`} className={styles.link}>
+            {title}
+          </Link>
+        </h2>
         {indicatorLabel && <p className={styles.indicator}>{indicatorLabel}</p>}
       </div>
 
@@ -55,6 +57,8 @@ export function ListCard({ id, title, stats }: ListCardProps) {
         size="small"
         aria-label={`Выполнено ${stats.done} из ${stats.total}`}
       />
-    </Link>
+
+      {actions && <div className={styles.actions}>{actions}</div>}
+    </article>
   );
 }
