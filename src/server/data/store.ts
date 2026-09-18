@@ -1,7 +1,7 @@
 import "server-only";
 
 import type { TaskList } from "@/domain/list/types";
-import type { Task, TaskStatus } from "@/domain/task/types";
+import type { Task } from "@/domain/task/types";
 
 type Store = {
   lists: TaskList[];
@@ -10,20 +10,18 @@ type Store = {
 
 const HOUR = 60 * 60 * 1000;
 
+type SeedTask = Pick<
+  Task,
+  "id" | "listId" | "title" | "status" | "priority"
+> & {
+  hoursUntilDeadline: number;
+};
+
 function createSeedStore(): Store {
   const now = Date.now();
 
-  const task = (
-    id: string,
-    listId: string,
-    title: string,
-    status: TaskStatus,
-    hoursUntilDeadline: number,
-  ): Task => ({
-    id,
-    listId,
-    title,
-    status,
+  const task = ({ hoursUntilDeadline, ...rest }: SeedTask): Task => ({
+    ...rest,
     deadline: new Date(now + hoursUntilDeadline * HOUR).toISOString(),
   });
 
@@ -35,22 +33,86 @@ function createSeedStore(): Store {
       { id: "personal", title: "Личное" },
     ],
     tasks: [
-      task(
-        "t1",
-        "release",
-        "Исправить падение при экспорте",
-        "in_progress",
-        -20,
-      ),
-      task("t2", "release", "Обновить changelog", "new", 30),
-      task("t3", "release", "Прогнать регресс", "new", 40),
-      task("t4", "release", "Согласовать дату выпуска", "done", -48),
-      task("t5", "onboarding", "Подготовить доступы", "done", -72),
-      task("t6", "onboarding", "Провести вводную встречу", "in_progress", 20),
-      task("t7", "onboarding", "Назначить наставников", "new", 120),
-      task("t8", "marketing", "Собрать бриф для дизайнеров", "done", -24),
-      task("t9", "marketing", "Запустить рассылку", "new", 200),
-      task("t10", "marketing", "Отчёт по охвату", "new", 300),
+      task({
+        id: "t1",
+        listId: "release",
+        title: "Исправить падение при экспорте",
+        status: "in_progress",
+        priority: "high",
+        hoursUntilDeadline: -20,
+      }),
+      task({
+        id: "t2",
+        listId: "release",
+        title: "Обновить changelog",
+        status: "new",
+        priority: "low",
+        hoursUntilDeadline: 30,
+      }),
+      task({
+        id: "t3",
+        listId: "release",
+        title: "Прогнать регресс",
+        status: "new",
+        priority: "high",
+        hoursUntilDeadline: 30,
+      }),
+      task({
+        id: "t4",
+        listId: "release",
+        title: "Согласовать дату выпуска",
+        status: "done",
+        priority: "medium",
+        hoursUntilDeadline: -48,
+      }),
+      task({
+        id: "t5",
+        listId: "onboarding",
+        title: "Подготовить доступы",
+        status: "done",
+        priority: "high",
+        hoursUntilDeadline: -72,
+      }),
+      task({
+        id: "t6",
+        listId: "onboarding",
+        title: "Провести вводную встречу",
+        status: "in_progress",
+        priority: "medium",
+        hoursUntilDeadline: 20,
+      }),
+      task({
+        id: "t7",
+        listId: "onboarding",
+        title: "Назначить наставников",
+        status: "new",
+        priority: "low",
+        hoursUntilDeadline: 120,
+      }),
+      task({
+        id: "t8",
+        listId: "marketing",
+        title: "Собрать бриф для дизайнеров",
+        status: "done",
+        priority: "medium",
+        hoursUntilDeadline: -24,
+      }),
+      task({
+        id: "t9",
+        listId: "marketing",
+        title: "Запустить рассылку",
+        status: "new",
+        priority: "high",
+        hoursUntilDeadline: 200,
+      }),
+      task({
+        id: "t10",
+        listId: "marketing",
+        title: "Отчёт по охвату",
+        status: "new",
+        priority: "low",
+        hoursUntilDeadline: 300,
+      }),
     ],
   };
 }
