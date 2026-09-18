@@ -1,8 +1,9 @@
+import { Empty } from "antd";
 import type { Metadata } from "next";
-import { connection } from "next/server";
 
 import { getListStats } from "@/domain/list/stats";
 import { ListCard } from "@/features/lists/list-card/ListCard";
+import { ListSearch } from "@/features/lists/list-search/ListSearch";
 import { listRepository } from "@/server/repositories/list.repository";
 import { taskRepository } from "@/server/repositories/task.repository";
 
@@ -12,30 +13,39 @@ export const metadata: Metadata = {
   title: "Списки задач — Task Manager",
 };
 
-export default async function ListsPage() {
-  // Данные в памяти читаются синхронно: без этого страница отрендерится один раз при сборке.
-  await connection();
+export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
+  const { q } = await searchParams;
+  const query = typeof q === "string" ? q : "";
 
   const now = new Date();
-  const lists = listRepository.findAll().map((list) => ({
+  const lists = listRepository.findAll(query).map((list) => ({
     list,
     stats: getListStats(taskRepository.findByList(list.id), now),
   }));
 
   return (
     <main className={styles.page}>
-      <h1 className={styles.title}>Списки задач</h1>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Списки задач</h1>
+        <div className={styles.search}>
+          <ListSearch defaultValue={query} />
+        </div>
+      </header>
 
-      <div className={styles.grid}>
-        {lists.map(({ list, stats }) => (
-          <ListCard
-            key={list.id}
-            id={list.id}
-            title={list.title}
-            stats={stats}
-          />
-        ))}
-      </div>
+      {lists.length > 0 ? (
+        <div className={styles.grid}>
+          {lists.map(({ list, stats }) => (
+            <ListCard
+              key={list.id}
+              id={list.id}
+              title={list.title}
+              stats={stats}
+            />
+          ))}
+        </div>
+      ) : (
+        <Empty description="Ничего не найдено" />
+      )}
     </main>
   );
 }
