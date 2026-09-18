@@ -13,7 +13,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest --project=unit --run",
+    "test": "vitest --project=unit --run --passWithNoTests",
     "test:watch": "vitest --project=unit",
     "test:coverage": "vitest --project=unit --run --coverage",
     "storybook": "storybook dev -p 6006",
@@ -25,7 +25,8 @@
     "antd": "^6.6.4",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@storybook/addon-themes": "^10.6.0",
