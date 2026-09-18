@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { LoginForm } from "@/features/auth/login-form/LoginForm";
+import { LoginFormContainer } from "@/features/auth/login-form/LoginFormContainer";
 
 import styles from "./page.module.css";
 
@@ -16,7 +16,7 @@ export default function LoginPage() {
           Вход в Task Manager
         </h1>
 
-        <LoginForm />
+        <LoginFormContainer />
 
         <p className={styles.hint}>
           Демо-доступ: admin@example.com / Admin123!
