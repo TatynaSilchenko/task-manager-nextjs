@@ -1,0 +1,11 @@
+.main {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
