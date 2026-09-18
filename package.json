@@ -13,7 +13,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest --project=unit --run --passWithNoTests",
+    "test": "vitest --project=unit --run",
     "test:watch": "vitest --project=unit",
     "test:coverage": "vitest --project=unit --run --coverage",
     "storybook": "storybook dev -p 6006",
