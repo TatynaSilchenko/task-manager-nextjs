@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/nextjs-vite";
 
-import { AntdProvider } from "../src/shared/ui/antd-provider";
+import { AntdProvider } from "../src/shared/theme/antd-provider";
 
 import "antd/dist/reset.css";
 import "../src/app/globals.css";
