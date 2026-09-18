@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ant-margin-sm);
+  padding: var(--ant-padding-lg);
+  border: 1px solid var(--ant-color-border-secondary);
+  border-left-width: 4px;
+  border-radius: var(--ant-border-radius-lg);
+  background: var(--ant-color-bg-container);
+  color: var(--ant-color-text);
+}
+
+.card:hover {
+  border-color: var(--ant-color-border);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--ant-color-primary);
+  outline-offset: 2px;
+}
+
+/* После :hover, чтобы цвет индикатора не пропадал при наведении */
+.card[data-indicator="overdue"] {
+  border-left-color: var(--ant-color-error);
+}
+
+.card[data-indicator="due-soon"] {
+  border-left-color: var(--ant-color-warning);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--ant-font-size-lg);
+  font-weight: var(--ant-font-weight-strong);
+}
+
+.indicator {
+  margin: 0;
+  font-size: var(--ant-font-size-sm);
+  font-weight: var(--ant-font-weight-strong);
+}
+
+.card[data-indicator="overdue"] .indicator {
+  color: var(--ant-color-error);
+}
+
+.card[data-indicator="due-soon"] .indicator {
+  color: var(--ant-color-warning);
+}
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--ant-margin-xs);
+  margin: 0;
+}
+
+.counters dt {
+  color: var(--ant-color-text-tertiary);
+  font-size: var(--ant-font-size-sm);
+}
+
+.counters dd {
+  margin: 0;
+  font-size: var(--ant-font-size-heading-4);
+  font-weight: var(--ant-font-weight-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.overdue dd {
+  color: var(--ant-color-error);
+}
