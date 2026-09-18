@@ -1,9 +1,5 @@
-import styles from "./page.module.css";
+import { redirect } from "next/navigation";
 
 export default function HomePage() {
-  return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>Task Manager</h1>
-    </main>
-  );
+  redirect("/lists");
 }
