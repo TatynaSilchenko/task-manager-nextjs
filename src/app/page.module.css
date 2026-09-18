@@ -8,7 +8,6 @@
 
 .title {
   margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: var(--ant-font-size-heading-3);
+  font-weight: var(--ant-font-weight-strong);
 }
