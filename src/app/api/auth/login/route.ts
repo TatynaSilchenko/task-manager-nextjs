@@ -8,7 +8,6 @@ import {
   apiValidationError,
 } from "@/server/http/api-response";
 
-// Локальные учётные данные из условия задания.
 const DEMO_USER = { email: "admin@example.com", password: "Admin123!" };
 
 export async function POST(request: Request) {

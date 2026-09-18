@@ -7,7 +7,6 @@ export const loginSchema = z.object({
     .toLowerCase()
     .min(1, { error: "Введите email" })
     .pipe(z.email({ error: "Введите корректный email" })),
-  // Пароль не обрезаем: пробелы могут быть его частью. Но одни пробелы — не пароль.
   password: z
     .string({ error: "Введите пароль" })
     .refine((value) => value.trim() !== "", { error: "Введите пароль" }),

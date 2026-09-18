@@ -59,6 +59,4 @@ const globalForStore = globalThis as typeof globalThis & {
   taskManagerStore?: Store;
 };
 
-// Одно хранилище на серверный процесс: страницы и API-обработчики собираются
-// в разные бандлы, и обычная переменная модуля могла бы оказаться у каждого своей.
 export const store = (globalForStore.taskManagerStore ??= createSeedStore());
