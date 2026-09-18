@@ -20,6 +20,13 @@
   font-weight: var(--ant-font-weight-strong);
 }
 
+.toolbar {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  gap: var(--ant-margin-sm);
+}
+
 .search {
   width: 100%;
   max-width: 320px;
