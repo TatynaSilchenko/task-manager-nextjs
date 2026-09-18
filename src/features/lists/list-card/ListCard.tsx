@@ -26,9 +26,10 @@ export function ListCard({ id, title, stats }: ListCardProps) {
       className={styles.card}
       data-indicator={stats.indicator}
     >
-      <h2 className={styles.title}>{title}</h2>
-
-      {indicatorLabel && <p className={styles.indicator}>{indicatorLabel}</p>}
+      <div className={styles.heading}>
+        <h2 className={styles.title}>{title}</h2>
+        {indicatorLabel && <p className={styles.indicator}>{indicatorLabel}</p>}
+      </div>
 
       <dl className={styles.counters}>
         <div>

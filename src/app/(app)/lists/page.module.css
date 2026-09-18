@@ -4,17 +4,30 @@
   background: var(--ant-color-bg-layout);
 }
 
-.title {
+.header {
+  display: flex;
   max-width: 1200px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ant-margin);
   margin: 0 auto var(--ant-margin-lg);
+}
+
+.title {
+  margin: 0;
   font-size: var(--ant-font-size-heading-3);
   font-weight: var(--ant-font-weight-strong);
+}
+
+.search {
+  width: 100%;
+  max-width: 320px;
 }
 
 .grid {
   display: grid;
   max-width: 1200px;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--ant-margin);
 }

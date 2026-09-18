@@ -1,7 +1,6 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ant-margin-sm);
+  display: grid;
+  gap: var(--ant-margin);
   padding: var(--ant-padding-lg);
   border: 1px solid var(--ant-color-border-secondary);
   border-left-width: 4px;
@@ -10,8 +9,18 @@
   color: var(--ant-color-text);
 }
 
+/* Сброс antd перекрашивает ссылки при наведении, текст карточки должен остаться прежним */
 .card:hover {
   border-color: var(--ant-color-border);
+  color: var(--ant-color-text);
+}
+
+@media (min-width: 768px) {
+  .card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--ant-margin-xl);
+  }
 }
 
 .card:focus-visible {
@@ -26,6 +35,12 @@
 
 .card[data-indicator="due-soon"] {
   border-left-color: var(--ant-color-warning);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ant-margin-xxs);
 }
 
 .title {
