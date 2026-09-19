@@ -153,9 +153,12 @@ export function TaskForm({
       </Form.Item>
 
       {serverError && (
-        <Form.Item>
-          <Alert type="error" title={serverError} showIcon />
-        </Form.Item>
+        <Alert
+          className={styles.error}
+          type="error"
+          title={serverError}
+          showIcon
+        />
       )}
 
       <div className={styles.actions}>

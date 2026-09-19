@@ -13,3 +13,7 @@
   justify-content: flex-end;
   gap: var(--ant-margin-sm);
 }
+
+.error {
+  margin-bottom: var(--ant-margin-lg);
+}
