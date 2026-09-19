@@ -5,7 +5,8 @@ import { Table, type TableColumnsType } from "antd";
 import type { DeadlineState, Task } from "@/domain/types/task";
 import { formatDeadline } from "@/shared/lib/date";
 
-import { DEADLINE_LABEL, PRIORITY_LABEL, STATUS_LABEL } from "../task-labels";
+import { StatusSelectContainer } from "../status-select/StatusSelectContainer";
+import { DEADLINE_LABEL, PRIORITY_LABEL } from "../task-labels";
 import styles from "./TaskTable.module.css";
 
 export type TaskRow = Task & { deadlineState: DeadlineState };
@@ -22,8 +23,14 @@ const columns: TableColumnsType<TaskRow> = [
     title: "Статус",
     dataIndex: "status",
     key: "status",
-    width: 140,
-    render: (_, task) => STATUS_LABEL[task.status],
+    width: 160,
+    render: (_, task) => (
+      <StatusSelectContainer
+        taskId={task.id}
+        taskTitle={task.title}
+        status={task.status}
+      />
+    ),
   },
   {
     title: "Приоритет",
