@@ -10,4 +10,14 @@ export const taskRepository = {
       (task) => task.listId === listId && (!status || task.status === status),
     );
   },
+
+  updateStatus(id: string, status: TaskStatus) {
+    const task = store.tasks.find((item) => item.id === id);
+
+    if (task) {
+      task.status = status;
+    }
+
+    return task;
+  },
 };
