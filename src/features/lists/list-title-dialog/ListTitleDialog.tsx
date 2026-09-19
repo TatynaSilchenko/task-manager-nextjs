@@ -35,10 +35,17 @@ export function ListTitleDialog({
   const [serverError, setServerError] = useState<string | null>(null);
 
   const handleFinish = async (values: ListInput) => {
+    const parsed = listInputSchema.safeParse(values);
+
+    if (!parsed.success) {
+      setServerError("Проверьте введённые данные");
+      return;
+    }
+
     setPending(true);
     setServerError(null);
 
-    const result = await onSubmit(listInputSchema.parse(values));
+    const result = await onSubmit(parsed.data);
     setPending(false);
 
     if (result.ok) {
@@ -68,6 +75,7 @@ export function ListTitleDialog({
         form={form}
         layout="vertical"
         requiredMark={false}
+        preserve={false}
         initialValues={{ title: initialTitle }}
         onFinish={handleFinish}
       >

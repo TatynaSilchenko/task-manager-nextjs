@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { updateTaskStatus } from "@/api-client/tasks";
+import { updateTask } from "@/api-client/tasks";
 import type { TaskStatus } from "@/domain/types/task";
 
 import { StatusSelect } from "./StatusSelect";
@@ -24,7 +24,7 @@ export function StatusSelectContainer({
     <StatusSelect
       status={status}
       taskTitle={taskTitle}
-      onChange={(next) => updateTaskStatus(taskId, { status: next })}
+      onChange={(next) => updateTask(taskId, { status: next })}
       onChanged={() => router.refresh()}
     />
   );

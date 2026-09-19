@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getDeadlineState } from "@/domain/task/deadline";
 import { taskStatusSchema } from "@/domain/task/schema";
 import { sortTasks } from "@/domain/task/sort";
+import { CreateTaskContainer } from "@/features/tasks/create-task/CreateTaskContainer";
 import { StatusFilter } from "@/features/tasks/status-filter/StatusFilter";
 import { TaskTable } from "@/features/tasks/task-table/TaskTable";
 import { listRepository } from "@/server/repositories/list.repository";
@@ -46,7 +47,10 @@ export default async function ListTasksPage({
 
         <header className={styles.header}>
           <h1 className={styles.title}>{list.title}</h1>
-          <StatusFilter value={statusFilter} />
+          <div className={styles.toolbar}>
+            <StatusFilter value={statusFilter} />
+            <CreateTaskContainer listId={list.id} />
+          </div>
         </header>
 
         <TaskTable

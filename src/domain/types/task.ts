@@ -10,6 +10,7 @@ export type Task = {
   id: string;
   listId: string;
   title: string;
+  description: string;
   status: TaskStatus;
   priority: TaskPriority;
   deadline: string;
