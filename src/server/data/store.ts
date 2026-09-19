@@ -14,14 +14,20 @@ type SeedTask = Pick<
   Task,
   "id" | "listId" | "title" | "status" | "priority"
 > & {
+  description?: string;
   hoursUntilDeadline: number;
 };
 
 function createSeedStore(): Store {
   const now = Date.now();
 
-  const task = ({ hoursUntilDeadline, ...rest }: SeedTask): Task => ({
+  const task = ({
+    hoursUntilDeadline,
+    description = "",
+    ...rest
+  }: SeedTask): Task => ({
     ...rest,
+    description,
     deadline: new Date(now + hoursUntilDeadline * HOUR).toISOString(),
   });
 
@@ -37,6 +43,8 @@ function createSeedStore(): Store {
         id: "t1",
         listId: "release",
         title: "Исправить падение при экспорте",
+        description:
+          "Экспорт в CSV падает на списках больше 500 задач. Воспроизводится на стенде.",
         status: "in_progress",
         priority: "high",
         hoursUntilDeadline: -20,
@@ -53,6 +61,7 @@ function createSeedStore(): Store {
         id: "t3",
         listId: "release",
         title: "Прогнать регресс",
+        description: "Полный прогон по чек-листу релиза, результаты — в отчёт.",
         status: "new",
         priority: "high",
         hoursUntilDeadline: 30,
@@ -77,6 +86,7 @@ function createSeedStore(): Store {
         id: "t6",
         listId: "onboarding",
         title: "Провести вводную встречу",
+        description: "Рассказать о процессах, познакомить с командой.",
         status: "in_progress",
         priority: "medium",
         hoursUntilDeadline: 20,

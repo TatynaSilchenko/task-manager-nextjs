@@ -2,9 +2,13 @@
 
 import { App, ConfigProvider } from "antd";
 import ruRU from "antd/locale/ru_RU";
+import dayjs from "dayjs";
+import "dayjs/locale/ru";
 import type { ReactNode } from "react";
 
 import { lightTheme } from "./antd-theme";
+
+dayjs.locale("ru");
 
 type AntdProviderProps = {
   children: ReactNode;

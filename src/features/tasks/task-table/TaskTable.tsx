@@ -6,6 +6,7 @@ import type { DeadlineState, Task } from "@/domain/types/task";
 import { formatDeadline } from "@/shared/lib/date";
 
 import { StatusSelectContainer } from "../status-select/StatusSelectContainer";
+import { TaskActionsContainer } from "../task-actions/TaskActionsContainer";
 import { DEADLINE_LABEL, PRIORITY_LABEL } from "../task-labels";
 import styles from "./TaskTable.module.css";
 
@@ -26,6 +27,7 @@ const columns: TableColumnsType<TaskRow> = [
     width: 160,
     render: (_, task) => (
       <StatusSelectContainer
+        key={task.status}
         taskId={task.id}
         taskTitle={task.title}
         status={task.status}
@@ -58,6 +60,12 @@ const columns: TableColumnsType<TaskRow> = [
         </div>
       );
     },
+  },
+  {
+    title: <span className={styles.visuallyHidden}>Действия</span>,
+    key: "actions",
+    width: 64,
+    render: (_, task) => <TaskActionsContainer task={task} />,
   },
 ];
 
