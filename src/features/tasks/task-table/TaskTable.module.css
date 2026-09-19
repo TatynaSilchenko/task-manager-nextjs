@@ -43,3 +43,15 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+.titleLink {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--ant-color-border);
+  text-underline-offset: 3px;
+}
+
+.titleLink:hover {
+  color: inherit;
+  text-decoration-color: currentColor;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Table, type TableColumnsType } from "antd";
+import Link from "next/link";
 
 import type { DeadlineState, Task } from "@/domain/types/task";
 import { formatDeadline } from "@/shared/lib/date";
@@ -19,6 +20,11 @@ const columns: TableColumnsType<TaskRow> = [
     title: "Задача",
     dataIndex: "title",
     key: "title",
+    render: (_, task) => (
+      <Link href={`/tasks/${task.id}`} className={styles.titleLink}>
+        {task.title}
+      </Link>
+    ),
   },
   {
     title: "Статус",

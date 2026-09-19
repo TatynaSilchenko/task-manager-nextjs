@@ -12,6 +12,10 @@ export const taskRepository = {
     );
   },
 
+  findById(id: string) {
+    return store.tasks.find((task) => task.id === id);
+  },
+
   create(listId: string, input: TaskInput) {
     const task: Task = { id: crypto.randomUUID(), listId, ...input };
     store.tasks.push(task);

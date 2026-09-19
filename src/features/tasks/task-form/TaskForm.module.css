@@ -7,3 +7,9 @@
 .datePicker {
   width: 100%;
 }
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ant-margin-sm);
+}
