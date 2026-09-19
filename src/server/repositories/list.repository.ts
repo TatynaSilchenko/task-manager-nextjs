@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { TaskList } from "@/domain/list/types";
+import type { TaskList } from "@/domain/types/list";
 
 import { store } from "../data/store";
 
@@ -11,6 +11,10 @@ export const listRepository = {
     return store.lists.filter((list) =>
       list.title.toLowerCase().includes(normalizedQuery),
     );
+  },
+
+  findById(id: string) {
+    return store.lists.find((list) => list.id === id);
   },
 
   create(title: string) {

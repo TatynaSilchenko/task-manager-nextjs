@@ -1,7 +1,7 @@
 import "server-only";
 
-import type { TaskList } from "@/domain/list/types";
-import type { Task } from "@/domain/task/types";
+import type { TaskList } from "@/domain/types/list";
+import type { Task } from "@/domain/types/task";
 
 type Store = {
   lists: TaskList[];

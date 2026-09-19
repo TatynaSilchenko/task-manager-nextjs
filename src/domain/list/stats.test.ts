@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import type { Task } from "../task/types";
+import type { Task } from "../types/task";
 import { getListStats } from "./stats";
 
 const NOW = new Date("2026-09-18T12:00:00.000Z");
