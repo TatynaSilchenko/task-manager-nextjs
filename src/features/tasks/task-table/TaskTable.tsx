@@ -9,7 +9,7 @@ import { StatusSelectContainer } from "../status-select/StatusSelectContainer";
 import { DEADLINE_LABEL, PRIORITY_LABEL } from "../task-labels";
 import styles from "./TaskTable.module.css";
 
-export type TaskRow = Task & { deadlineState: DeadlineState };
+type TaskRow = Task & { deadlineState: DeadlineState };
 
 const DONE_ROW_CLASS = styles.done ?? "";
 
