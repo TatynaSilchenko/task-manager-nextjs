@@ -1,4 +1,4 @@
-import type { Task } from "./types";
+import type { DeadlineState, Task } from "../types/task";
 
 const DUE_SOON_MS = 48 * 60 * 60 * 1000;
 
@@ -16,4 +16,11 @@ export function isDueSoon(task: DeadlineTask, now: Date) {
   const msLeft = new Date(task.deadline).getTime() - now.getTime();
 
   return msLeft >= 0 && msLeft <= DUE_SOON_MS;
+}
+
+export function getDeadlineState(task: DeadlineTask, now: Date): DeadlineState {
+  if (isOverdue(task, now)) return "overdue";
+  if (isDueSoon(task, now)) return "due-soon";
+
+  return "none";
 }

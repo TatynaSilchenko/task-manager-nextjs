@@ -1,17 +1,6 @@
 import { isDueSoon, isOverdue } from "../task/deadline";
-import type { Task } from "../task/types";
-
-export type ListIndicator = "overdue" | "due-soon" | "none";
-
-export type ListStats = {
-  total: number;
-  new: number;
-  inProgress: number;
-  done: number;
-  overdue: number;
-  progress: number;
-  indicator: ListIndicator;
-};
+import type { ListStats } from "../types/list";
+import type { Task } from "../types/task";
 
 type StatsTask = Pick<Task, "status" | "deadline">;
 

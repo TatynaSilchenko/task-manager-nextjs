@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { sortTasks } from "./sort";
-import type { Task } from "./types";
+import type { Task } from "../types/task";
 
 const NOW = new Date("2026-09-18T12:00:00.000Z");
 const HOUR = 60 * 60 * 1000;

@@ -2,11 +2,12 @@ import { Progress } from "antd";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import type { ListIndicator, ListStats } from "@/domain/list/stats";
+import type { ListStats } from "@/domain/types/list";
+import type { DeadlineState } from "@/domain/types/task";
 
 import styles from "./ListCard.module.css";
 
-const INDICATOR_LABEL: Record<ListIndicator, string | null> = {
+const INDICATOR_LABEL: Record<DeadlineState, string | null> = {
   overdue: "Есть просроченные задачи",
   "due-soon": "Дедлайн в ближайшие 48 часов",
   none: null,

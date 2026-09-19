@@ -1,4 +1,4 @@
-import type { Task, TaskPriority } from "./types";
+import type { Task, TaskPriority } from "../types/task";
 
 type SortableTask = Pick<Task, "status" | "priority" | "deadline">;
 

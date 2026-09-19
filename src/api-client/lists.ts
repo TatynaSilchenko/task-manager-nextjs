@@ -1,5 +1,5 @@
 import type { ListInput } from "@/domain/list/list-schema";
-import type { TaskList } from "@/domain/list/types";
+import type { TaskList } from "@/domain/types/list";
 
 import { request } from "./http";
 

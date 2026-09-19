@@ -1,0 +1,33 @@
+.priority[data-priority="high"] {
+  font-weight: var(--ant-font-weight-strong);
+}
+
+.priority[data-priority="low"] {
+  color: var(--ant-color-text-secondary);
+}
+
+.deadline {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  font-variant-numeric: tabular-nums;
+}
+
+.deadlineLabel {
+  font-size: var(--ant-font-size-sm);
+  font-weight: var(--ant-font-weight-strong);
+}
+
+.deadline[data-state="overdue"] {
+  color: var(--ant-color-error);
+}
+
+.deadline[data-state="due-soon"] {
+  color: var(--ant-color-warning);
+}
+
+.done td {
+  color: var(--ant-color-text-tertiary);
+}
