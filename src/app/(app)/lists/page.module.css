@@ -1,23 +1,10 @@
-.page {
-  min-height: 100vh;
-  padding: var(--ant-padding-xl) var(--ant-padding-lg);
-  background: var(--ant-color-bg-layout);
-}
-
 .header {
   display: flex;
-  max-width: 1200px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--ant-margin);
-  margin: 0 auto var(--ant-margin-lg);
-}
-
-.title {
-  margin: 0;
-  font-size: var(--ant-font-size-heading-3);
-  font-weight: var(--ant-font-weight-strong);
+  margin-bottom: var(--ant-margin-xs);
 }
 
 .toolbar {
@@ -34,7 +21,5 @@
 
 .grid {
   display: grid;
-  max-width: 1200px;
-  margin: 0 auto;
   gap: var(--ant-margin);
 }

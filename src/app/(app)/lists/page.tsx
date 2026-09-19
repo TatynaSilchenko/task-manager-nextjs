@@ -8,6 +8,7 @@ import { ListCard } from "@/features/lists/list-card/ListCard";
 import { ListSearch } from "@/features/lists/list-search/ListSearch";
 import { listRepository } from "@/server/repositories/list.repository";
 import { taskRepository } from "@/server/repositories/task.repository";
+import { PageLayout, PageTitle } from "@/shared/ui/page-layout/PageLayout";
 
 import styles from "./page.module.css";
 
@@ -26,9 +27,9 @@ export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
   }));
 
   return (
-    <main className={styles.page}>
+    <PageLayout>
       <header className={styles.header}>
-        <h1 className={styles.title}>Списки задач</h1>
+        <PageTitle>Списки задач</PageTitle>
         <div className={styles.toolbar}>
           <div className={styles.search}>
             <ListSearch defaultValue={query} />
@@ -52,6 +53,6 @@ export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
       ) : (
         <Empty description={query ? "Ничего не найдено" : "Списков пока нет"} />
       )}
-    </main>
+    </PageLayout>
   );
 }

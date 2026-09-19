@@ -48,7 +48,7 @@
   color: inherit;
   text-decoration: underline;
   text-decoration-color: var(--ant-color-border);
-  text-underline-offset: 3px;
+  text-underline-offset: var(--ant-padding-xxs);
 }
 
 .titleLink:hover {

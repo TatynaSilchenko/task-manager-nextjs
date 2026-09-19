@@ -1,0 +1,20 @@
+.link {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: var(--ant-margin-xs);
+  padding: var(--ant-padding-xxs) var(--ant-padding-xs);
+  margin-left: calc(var(--ant-padding-xs) * -1);
+  border-radius: var(--ant-border-radius-sm);
+  color: var(--ant-color-text-secondary);
+}
+
+.link:hover {
+  background: var(--ant-color-fill-tertiary);
+  color: var(--ant-color-text);
+}
+
+.link:focus-visible {
+  outline: var(--ant-line-width-focus) solid var(--ant-color-primary);
+  outline-offset: var(--ant-line-width);
+}
