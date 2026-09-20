@@ -30,10 +30,16 @@ export function PageLayout({
   );
 }
 
-type PageTitleProps = {
-  children: ReactNode;
+type PageHeaderProps = {
+  title: ReactNode;
+  actions?: ReactNode;
 };
 
-export function PageTitle({ children }: PageTitleProps) {
-  return <h1 className={styles.title}>{children}</h1>;
+export function PageHeader({ title, actions }: PageHeaderProps) {
+  return (
+    <header className={styles.header}>
+      <h1 className={styles.title}>{title}</h1>
+      {actions && <div className={styles.actions}>{actions}</div>}
+    </header>
+  );
 }

@@ -29,7 +29,7 @@
 }
 
 .done td {
-  color: var(--ant-color-text-tertiary);
+  color: var(--ant-color-text-secondary);
 }
 
 .visuallyHidden {

@@ -1,3 +1,4 @@
+import { LOGIN_URL, UNAUTHORIZED_EVENT } from "@/shared/lib/auth";
 import type { ApiResult } from "@/shared/types/api";
 
 export async function request<T>(
@@ -10,6 +11,16 @@ export async function request<T>(
       headers: { "Content-Type": "application/json", ...init.headers },
     });
     const result: ApiResult<T> = await response.json();
+
+    const isSessionCheck = url !== LOGIN_URL;
+
+    if (
+      isSessionCheck &&
+      response.status === 401 &&
+      typeof window !== "undefined"
+    ) {
+      window.dispatchEvent(new Event(UNAUTHORIZED_EVENT));
+    }
 
     return result;
   } catch {

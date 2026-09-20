@@ -1,0 +1,5 @@
+.form :global(.ant-form-item-explain) {
+  margin: var(--ant-margin-xxs) 0 var(--ant-margin-sm);
+  font-size: var(--ant-font-size-sm);
+  line-height: var(--ant-line-height-sm);
+}

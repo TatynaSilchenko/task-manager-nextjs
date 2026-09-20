@@ -13,6 +13,7 @@ import { TASK_PRIORITIES, TASK_STATUSES } from "@/domain/types/task";
 import { fromPickerValue, toPickerValue } from "@/shared/lib/date";
 import { zodRule } from "@/shared/lib/zod-rule";
 import type { ApiResult } from "@/shared/types/api";
+import formStyles from "@/shared/ui/form/form.module.css";
 
 import { PRIORITY_LABEL, STATUS_LABEL } from "../task-labels";
 import styles from "./TaskForm.module.css";
@@ -93,6 +94,7 @@ export function TaskForm({
 
   return (
     <Form<TaskInput>
+      className={formStyles.form}
       form={form}
       layout="vertical"
       requiredMark={false}
