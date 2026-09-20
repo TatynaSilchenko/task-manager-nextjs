@@ -10,7 +10,7 @@ export const taskStatusSchema = z.enum(TASK_STATUSES, {
   error: "Неизвестный статус",
 });
 
-export const taskPrioritySchema = z.enum(TASK_PRIORITIES, {
+const taskPrioritySchema = z.enum(TASK_PRIORITIES, {
   error: "Неизвестный приоритет",
 });
 

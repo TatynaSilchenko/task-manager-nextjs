@@ -9,7 +9,7 @@ import { ListSearch } from "@/features/lists/list-search/ListSearch";
 import { listRepository } from "@/server/repositories/list.repository";
 import { taskRepository } from "@/server/repositories/task.repository";
 import { ThemeSwitcher } from "@/shared/theme/theme-switcher/ThemeSwitcher";
-import { PageLayout, PageTitle } from "@/shared/ui/page-layout/PageLayout";
+import { PageHeader, PageLayout } from "@/shared/ui/page-layout/PageLayout";
 
 import styles from "./page.module.css";
 
@@ -29,15 +29,17 @@ export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
 
   return (
     <PageLayout aside={<ThemeSwitcher />}>
-      <header className={styles.header}>
-        <PageTitle>Списки задач</PageTitle>
-        <div className={styles.toolbar}>
-          <div className={styles.search}>
-            <ListSearch defaultValue={query} />
-          </div>
-          <CreateListContainer />
-        </div>
-      </header>
+      <PageHeader
+        title="Списки задач"
+        actions={
+          <>
+            <div className={styles.search}>
+              <ListSearch defaultValue={query} />
+            </div>
+            <CreateListContainer />
+          </>
+        }
+      />
 
       {lists.length > 0 ? (
         <div className={styles.grid}>

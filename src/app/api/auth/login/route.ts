@@ -1,12 +1,12 @@
 import { cookies } from "next/headers";
 
 import { loginSchema } from "@/domain/auth/login-schema";
-import { AUTH_COOKIE, authCookieOptions } from "@/shared/lib/auth-cookie";
 import {
   apiError,
   apiOk,
   apiValidationError,
 } from "@/server/http/api-response";
+import { AUTH_COOKIE, authCookieOptions } from "@/shared/lib/auth";
 
 const DEMO_USER = { email: "admin@example.com", password: "Admin123!" };
 
