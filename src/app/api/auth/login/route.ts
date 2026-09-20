@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
 import { loginSchema } from "@/domain/auth/login-schema";
-import { AUTH_COOKIE, authCookieOptions } from "@/server/auth-cookie";
+import { AUTH_COOKIE, authCookieOptions } from "@/shared/lib/auth-cookie";
 import {
   apiError,
   apiOk,

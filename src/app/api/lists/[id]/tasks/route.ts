@@ -1,5 +1,5 @@
 import { taskInputSchema } from "@/domain/task/schema";
-import { isAuthenticated } from "@/server/auth-cookie";
+import { isAuthenticated } from "@/server/auth";
 import {
   apiNotFound,
   apiOk,

@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { AUTH_COOKIE } from "@/server/auth-cookie";
+import { AUTH_COOKIE } from "@/shared/lib/auth-cookie";
 
 export function proxy(request: NextRequest) {
   const isAuthenticated = request.cookies.has(AUTH_COOKIE);
