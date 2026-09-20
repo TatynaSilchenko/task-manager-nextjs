@@ -10,12 +10,13 @@
 .toolbar {
   display: flex;
   flex: 1;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: var(--ant-margin-sm);
 }
 
 .search {
-  width: 100%;
+  flex: 1 1 240px;
   max-width: 320px;
 }
 
