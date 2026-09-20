@@ -22,3 +22,13 @@
   font-weight: var(--ant-font-weight-strong);
   overflow-wrap: anywhere;
 }
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: var(--ant-margin);
+}
+
+.aside {
+  margin-left: auto;
+}

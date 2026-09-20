@@ -40,9 +40,7 @@ export default async function ListTasksPage({
   );
 
   return (
-    <PageLayout>
-      <BackLink href="/lists">Все списки</BackLink>
-
+    <PageLayout back={<BackLink href="/lists">Все списки</BackLink>}>
       <header className={styles.header}>
         <PageTitle>{list.title}</PageTitle>
         <div className={styles.toolbar}>

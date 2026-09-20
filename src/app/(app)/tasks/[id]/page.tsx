@@ -24,11 +24,16 @@ export default async function TaskPage({ params }: PageProps<"/tasks/[id]">) {
   const list = listRepository.findById(task.listId);
 
   return (
-    <PageLayout width="narrow">
-      {list && (
-        <BackLink href={`/lists/${list.id}`}>К списку «{list.title}»</BackLink>
-      )}
-
+    <PageLayout
+      width="narrow"
+      back={
+        list && (
+          <BackLink href={`/lists/${list.id}`}>
+            К списку «{list.title}»
+          </BackLink>
+        )
+      }
+    >
       <PageTitle>{task.title}</PageTitle>
 
       <section className={styles.panel} aria-label="Карточка задачи">

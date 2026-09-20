@@ -8,6 +8,7 @@ import { ListCard } from "@/features/lists/list-card/ListCard";
 import { ListSearch } from "@/features/lists/list-search/ListSearch";
 import { listRepository } from "@/server/repositories/list.repository";
 import { taskRepository } from "@/server/repositories/task.repository";
+import { ThemeSwitcher } from "@/shared/theme/theme-switcher/ThemeSwitcher";
 import { PageLayout, PageTitle } from "@/shared/ui/page-layout/PageLayout";
 
 import styles from "./page.module.css";
@@ -27,7 +28,7 @@ export default async function ListsPage({ searchParams }: PageProps<"/lists">) {
   }));
 
   return (
-    <PageLayout>
+    <PageLayout aside={<ThemeSwitcher />}>
       <header className={styles.header}>
         <PageTitle>Списки задач</PageTitle>
         <div className={styles.toolbar}>
