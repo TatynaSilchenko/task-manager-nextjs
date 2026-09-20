@@ -50,6 +50,7 @@ export const darkTheme: ThemeConfig = {
   token: {
     ...sharedToken,
     colorPrimary: "#D6D3CD",
+    colorTextLightSolid: "#121212",
     colorInfo: "#7FA0B3",
     colorSuccess: "#7FA0B3",
     colorWarning: "#E09B3D",
