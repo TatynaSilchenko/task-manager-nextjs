@@ -1,5 +1,5 @@
 import { listInputSchema } from "@/domain/list/list-schema";
-import { isAuthenticated } from "@/server/auth-cookie";
+import { isAuthenticated } from "@/server/auth";
 import {
   apiNotFound,
   apiOk,
