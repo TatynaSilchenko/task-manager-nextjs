@@ -41,9 +41,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# lockfile
-package-lock.json
-
 # storybook
 *storybook.log
 /storybook-static
