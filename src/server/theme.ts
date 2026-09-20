@@ -16,8 +16,8 @@ export async function getInitialTheme() {
 
   const preference = parseThemePreference(cookieStore.get(THEME_COOKIE)?.value);
   const systemTheme =
-    parseResolvedTheme(headerList.get(SYSTEM_THEME_HINT)) ??
     parseResolvedTheme(cookieStore.get(SYSTEM_THEME_COOKIE)?.value) ??
+    parseResolvedTheme(headerList.get(SYSTEM_THEME_HINT)) ??
     "light";
 
   return { preference, systemTheme };

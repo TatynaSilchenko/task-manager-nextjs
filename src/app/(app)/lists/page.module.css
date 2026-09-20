@@ -1,20 +1,3 @@
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--ant-margin);
-  margin-bottom: var(--ant-margin-xs);
-}
-
-.toolbar {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: var(--ant-margin-sm);
-}
-
 .search {
   flex: 1 1 240px;
   max-width: 320px;

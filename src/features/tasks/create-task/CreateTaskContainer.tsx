@@ -1,5 +1,6 @@
 "use client";
 
+import { App } from "antd";
 import { useRouter } from "next/navigation";
 
 import { createTask } from "@/api-client/tasks";
@@ -12,11 +13,15 @@ type CreateTaskContainerProps = {
 
 export function CreateTaskContainer({ listId }: CreateTaskContainerProps) {
   const router = useRouter();
+  const { message } = App.useApp();
 
   return (
     <CreateTask
       onCreate={(values) => createTask(listId, values)}
-      onCreated={() => router.refresh()}
+      onCreated={() => {
+        message.success("Задача создана");
+        router.refresh();
+      }}
     />
   );
 }

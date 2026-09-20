@@ -6,6 +6,7 @@ import { useState } from "react";
 import { type LoginInput, loginSchema } from "@/domain/auth/login-schema";
 import { zodRule } from "@/shared/lib/zod-rule";
 import type { ApiResult } from "@/shared/types/api";
+import formStyles from "@/shared/ui/form/form.module.css";
 
 const FIELD_NAMES: (keyof LoginInput)[] = ["email", "password"];
 
@@ -42,6 +43,7 @@ export function LoginForm({ onSubmit, onSuccess }: LoginFormProps) {
 
   return (
     <Form<LoginInput>
+      className={formStyles.form}
       form={form}
       layout="vertical"
       requiredMark={false}

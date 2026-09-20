@@ -5,7 +5,7 @@ import { TaskDetailsContainer } from "@/features/tasks/task-details/TaskDetailsC
 import { listRepository } from "@/server/repositories/list.repository";
 import { taskRepository } from "@/server/repositories/task.repository";
 import { BackLink } from "@/shared/ui/back-link/BackLink";
-import { PageLayout, PageTitle } from "@/shared/ui/page-layout/PageLayout";
+import { PageHeader, PageLayout } from "@/shared/ui/page-layout/PageLayout";
 
 import styles from "./page.module.css";
 
@@ -34,7 +34,7 @@ export default async function TaskPage({ params }: PageProps<"/tasks/[id]">) {
         )
       }
     >
-      <PageTitle>{task.title}</PageTitle>
+      <PageHeader title={task.title} />
 
       <section className={styles.panel} aria-label="Карточка задачи">
         <TaskDetailsContainer key={JSON.stringify(task)} task={task} />

@@ -2,7 +2,7 @@ import "server-only";
 
 import { cookies } from "next/headers";
 
-import { AUTH_COOKIE } from "@/shared/lib/auth-cookie";
+import { AUTH_COOKIE } from "@/shared/lib/auth";
 
 export async function isAuthenticated() {
   const cookieStore = await cookies();

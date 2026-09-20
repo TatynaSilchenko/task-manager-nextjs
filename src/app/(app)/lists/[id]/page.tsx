@@ -10,9 +10,7 @@ import { TaskTable } from "@/features/tasks/task-table/TaskTable";
 import { listRepository } from "@/server/repositories/list.repository";
 import { taskRepository } from "@/server/repositories/task.repository";
 import { BackLink } from "@/shared/ui/back-link/BackLink";
-import { PageLayout, PageTitle } from "@/shared/ui/page-layout/PageLayout";
-
-import styles from "./page.module.css";
+import { PageHeader, PageLayout } from "@/shared/ui/page-layout/PageLayout";
 
 export const metadata: Metadata = {
   title: "Задачи — Task Manager",
@@ -41,13 +39,15 @@ export default async function ListTasksPage({
 
   return (
     <PageLayout back={<BackLink href="/lists">Все списки</BackLink>}>
-      <header className={styles.header}>
-        <PageTitle>{list.title}</PageTitle>
-        <div className={styles.toolbar}>
-          <StatusFilter value={statusFilter} />
-          <CreateTaskContainer listId={list.id} />
-        </div>
-      </header>
+      <PageHeader
+        title={list.title}
+        actions={
+          <>
+            <StatusFilter value={statusFilter} />
+            <CreateTaskContainer listId={list.id} />
+          </>
+        }
+      />
 
       <TaskTable
         tasks={tasks}

@@ -10,6 +10,7 @@ import {
 } from "@/domain/list/list-schema";
 import { zodRule } from "@/shared/lib/zod-rule";
 import type { ApiResult } from "@/shared/types/api";
+import formStyles from "@/shared/ui/form/form.module.css";
 
 type ListTitleDialogProps = {
   open: boolean;
@@ -72,6 +73,7 @@ export function ListTitleDialog({
       destroyOnHidden
     >
       <Form<ListInput>
+        className={formStyles.form}
         form={form}
         layout="vertical"
         requiredMark={false}

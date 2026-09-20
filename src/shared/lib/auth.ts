@@ -7,3 +7,15 @@ export const authCookieOptions = {
   path: "/",
   maxAge: 60 * 60 * 24 * 7,
 } as const;
+
+export function safeRedirectPath(value?: string | string[]) {
+  return typeof value === "string" &&
+    value.startsWith("/") &&
+    !value.startsWith("//")
+    ? value
+    : "/lists";
+}
+
+export const UNAUTHORIZED_EVENT = "app:unauthorized";
+
+export const LOGIN_URL = "/api/auth/login";
