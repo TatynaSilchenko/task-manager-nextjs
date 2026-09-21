@@ -38,7 +38,7 @@ describe("sortTasks", () => {
     expect(ids(sortTasks(tasks))).toEqual(["new", "done"]);
   });
 
-  it("puts overdue tasks at the top", () => {
+  it("keeps a past deadline above an upcoming one", () => {
     const tasks = [
       makeTask("soon", { hoursUntilDeadline: 1 }),
       makeTask("overdue", { hoursUntilDeadline: -1 }),
